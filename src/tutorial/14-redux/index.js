@@ -1,10 +1,17 @@
 import React from "react";
-
-const reduxSample = () => {
+// import * as Action from '../../redux/action/action'
+import { increaseNumber } from '../../redux/action/action'
+import { useSelector, useDispatch } from 'react-redux';
+const ReduxSample = () => {
+  const count = useSelector((state) => state.cartReducer.count)
+  const dispatch = useDispatch()
+  console.log(count)
   return (
     <React.Fragment>
-      redux
+      <h1>{count}</h1>
+      <button onClick={() => dispatch(increaseNumber())}>increase</button>
     </React.Fragment>
   )
 }
-export default reduxSample
+export default ReduxSample
+
