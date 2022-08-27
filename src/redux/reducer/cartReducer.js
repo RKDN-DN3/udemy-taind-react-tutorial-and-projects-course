@@ -7,7 +7,6 @@ const initialStore = {
 }
 
 const cartReducer = (state = initialStore, action) => {
-  console.log('state', state)
   switch (action.type) {
     case ACTION.DECREASE:
       return { ...state, count: state.count - 1 }
