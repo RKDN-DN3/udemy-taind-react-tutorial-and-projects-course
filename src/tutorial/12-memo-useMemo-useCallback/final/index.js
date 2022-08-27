@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useMemo } from 'react'
+import React, { useState, useCallback, useMemo, useEffect } from 'react'
 import { useFetch } from '../../9-custom-hooks/final/2-useFetch'
 
 // ATTENTION!!!!!!!!!!
@@ -7,6 +7,7 @@ const url = 'https://course-api.com/javascript-store-products'
 
 // every time props or state changes, component re-renders
 const calculateMostExpensive = (data) => {
+  console.log('calculateMostExpensive')
   return (
     data.reduce((total, item) => {
       const price = item.fields.price
@@ -43,9 +44,9 @@ const Index = () => {
 }
 
 const BigList = React.memo(({ products, addToCart }) => {
-  // useEffect(() => {
-  //   console.count('hello from big list');
-  // });
+  useEffect(() => {
+    console.count('hello from big list');
+  });
 
   return (
     <section className='products'>
@@ -67,9 +68,9 @@ const SingleProduct = ({ fields, addToCart }) => {
   price = price / 100
   const image = fields.image[0].url
 
-  // useEffect(() => {
-  //   console.count('hello from product');
-  // });
+  useEffect(() => {
+    console.count('hello from product');
+  });
   return (
     <article className='product'>
       <img src={image} alt={name} />
