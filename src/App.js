@@ -1,11 +1,11 @@
 import React from 'react'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import rootReducer from './redux/reducer/reducer2'
+import { store } from './redux/reducer/reducerTK'
 import ReduxSample from './tutorial/14-redux/index2'
 
+// import { createStore } from 'redux' old redux
+
 function App() {
-  const store = createStore(rootReducer)
   return (
     <Provider store={store}>
     <div className='container'>
@@ -13,6 +13,16 @@ function App() {
     </div>
     </Provider>
   )
+
+  // old redux
+  // const store = createStore(rootReducer)
+  // return (
+  //   <Provider store={store}>
+  //   <div className='container'>
+  //     <ReduxSample />
+  //   </div>
+  //   </Provider>
+  // )
 }
 
 export default App

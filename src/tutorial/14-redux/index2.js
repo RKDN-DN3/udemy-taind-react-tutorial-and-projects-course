@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as action from '../../redux/action/cartAction'
+import * as action from '../../redux/reducer/cartSlice'
 const ReduxSample = () => {
   const dispatch = useDispatch()
   const count = useSelector((state) => state.cartReducer.count)
@@ -8,7 +8,7 @@ const ReduxSample = () => {
   return (
     <>
       <h1>{count}</h1>
-      <button onClick={() => dispatch(action.setIncrease())}>increase</button>
+      <button onClick={() => dispatch(action.setIncrease(22))}>increase</button>
     </>
   )
 }
