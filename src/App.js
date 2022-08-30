@@ -1,7 +1,7 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { store } from './redux/reducer/reducerTK'
-import ReduxSample from './tutorial/14-redux/index2'
+import ReduxSample from './tutorial/15-rtk-create-async-thunk/index'
 
 // import { createStore } from 'redux' old redux
 

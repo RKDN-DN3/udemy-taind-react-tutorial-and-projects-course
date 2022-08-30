@@ -8,7 +8,6 @@ const cartSlice = createSlice({
   initialState,
   reducers: {
     setIncrease: (state, action) => {
-      console.log(1111, action.payload)
       state.count = state.count + 1
     }
   }
