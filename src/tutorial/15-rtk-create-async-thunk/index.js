@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 const Register = () => {
   const initialState = {
     username: '',
@@ -7,9 +8,11 @@ const Register = () => {
     password: '',
   }
   const [value, setValue] = useState(initialState)
-
-  const handleChange= (e) => {
+  const [user, isLoading] = useSelector((store) => store.user)
+  const dispatch = useDispatch()
+  const handleChange = (e) => {
     console.log(e.target)
+    setValue({ ...value, [e.target.name]: e.target.value })
   }
 
   const onSubmit = (e) => {
@@ -20,8 +23,8 @@ const Register = () => {
   return (
     <React.Fragment>
       <form onSubmit={onSubmit}>
-        <input type="text" name="username" />
-        <input type="password" name="password" />
+        <input type="text" name="username" value={value.username} onChange={handleChange} />
+        <input type="password" name="password" value={value.password} onChange={handleChange} />
         <button type="submit">Login</button>
       </form>
     </React.Fragment>
