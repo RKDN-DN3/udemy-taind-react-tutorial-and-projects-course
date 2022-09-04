@@ -1,6 +1,8 @@
 import React from "react";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { registerUser } from '../../redux/reducer/registerSlice'
+
 const Register = () => {
   const initialState = {
     username: '',
@@ -8,7 +10,7 @@ const Register = () => {
     password: '',
   }
   const [value, setValue] = useState(initialState)
-  const [user, isLoading] = useSelector((store) => store.user)
+  const {user, isLoading} = useSelector((store) => store.registerReducer)
   const dispatch = useDispatch()
   const handleChange = (e) => {
     console.log(e.target)
@@ -18,6 +20,10 @@ const Register = () => {
   const onSubmit = (e) => {
     e.preventDefault();
     console.log(e.target)
+    dispatch(registerUser({
+      username: value.username,
+      password: value.password,
+    }))
   }
 
   return (
